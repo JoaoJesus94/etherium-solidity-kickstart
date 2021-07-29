@@ -26,7 +26,7 @@ const CampaignIndex = (props) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const campaigns = await factory.methods.getDeployedCampaigns().call();
 
   return { props: { campaigns } };
