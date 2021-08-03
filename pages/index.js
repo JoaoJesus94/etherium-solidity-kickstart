@@ -1,11 +1,17 @@
 import { Card, Button } from "semantic-ui-react";
+import Link from "next/link";
+
 import factory from "../ethereum/factory";
 
-const CampaignIndex = (props) => {
+const CampaignIndex = ({ campaigns }) => {
   const renderCampaign = () => {
-    const items = props.campaigns.map((address) => ({
+    const items = campaigns.map((address) => ({
       header: address,
-      description: <a>View campaign</a>,
+      description: (
+        <Link href={`/campaigns/${address}`}>
+          <a>View campaign</a>
+        </Link>
+      ),
       fluid: true,
     }));
 
@@ -15,12 +21,17 @@ const CampaignIndex = (props) => {
   return (
     <div>
       <h3>Open Campaigns</h3>
-      <Button
-        floated="right"
-        content="Create Campaign"
-        icon="add circle"
-        primary
-      />
+      <Link href="/campaigns/new">
+        <a>
+          <Button
+            floated="right"
+            content="Create Campaign"
+            icon="add circle"
+            primary
+          />
+        </a>
+      </Link>
+
       {renderCampaign()}
     </div>
   );
