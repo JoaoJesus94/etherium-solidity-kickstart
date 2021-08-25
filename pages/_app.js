@@ -1,5 +1,5 @@
 import "semantic-ui-css/semantic.min.css";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 
 const MyApp = ({ Component, pageProps }) => {
   return (

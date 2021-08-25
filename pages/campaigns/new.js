@@ -22,7 +22,7 @@ const CampaignNew = () => {
     try {
       const accounts = await web3.eth.getAccounts();
       await factory.methods
-        .createCampaign(minimumContribution)
+        .createCampaign(web3.utils.toWei(minimumContribution, "ether"))
         .send({ from: accounts[0] });
 
       router.push("/");
@@ -41,7 +41,7 @@ const CampaignNew = () => {
         <Form.Field>
           <label>Minimum Contribution</label>
           <Input
-            label="wei"
+            label="eth"
             labelPosition="right"
             value={minimumContribution}
             onChange={handleOnChange}

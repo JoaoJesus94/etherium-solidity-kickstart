@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import { Button, Form, Input, Message } from "semantic-ui-react";
 
-import campaign from "../ethereum/campaign";
+import Campaign from "../ethereum/campaign";
 import web3 from "../ethereum/web3";
 
 const ContributeForm = () => {
@@ -19,7 +19,7 @@ const ContributeForm = () => {
     setIsLoading(true);
     setErrorMessage("");
 
-    const selectedCampaign = campaign(address);
+    const selectedCampaign = Campaign(address);
 
     try {
       const accounts = await web3.eth.getAccounts();
